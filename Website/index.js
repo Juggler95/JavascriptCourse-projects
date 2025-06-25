@@ -1,8 +1,16 @@
-function combineStrings(...string) {
-  return string.join(' ');
+// A callback is a function that is passed as an argument to another function and is executed after some operation has been completed.
+
+sum(displayPage, 1, 2);
+
+function sum(callback, x, y) {
+  let result = x + y;
+  callback(result);
 }
 
-const fullName = combineStrings('Mr.', 'Spongebob', 'Squarepants', 'III');
+function displayConsole(result) {
+  console.log(result);
+}
 
-console.log(fullName);
-//3:44:25
+function displayPage(result) {
+  document.getElementById('myH1').textContnent = result;
+}
