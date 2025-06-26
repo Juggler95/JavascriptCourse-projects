@@ -1,23 +1,10 @@
-// forEach() = method that executes a provided function once for each array element
-// Syntax: array.forEach(callback(currentValue[, index[, array]])[, thisArg])
+// The .map() method creates a new array by applying the formatDate function to each element in the dates array.
 
-let fruits = ['apple', 'banana', 'orange', 'coconut'];
+const dates = ['2024-1-10', '2025-2-20', '2026-3-30'];
+const formattedDates = dates.map(formatDate);
+console.log(formattedDates);
 
-fruits.forEach(capitalize);
-fruits.forEach(display);
-
-function display(element) {
-  console.log(element);
-}
-
-function upperCase(element, index, array) {
-  array[index] = element.toUpperCase();
-}
-
-function lowerCase(element, index, array) {
-  array[index] = element.toLowerCase();
-}
-function capitalize(element, index, array) {
-  array[index] =
-    element.charAt(0).toUpperCase() + element.slice(1).toLowerCase();
+function formatDate(element) {
+  const parts = element.split('-');
+  return `${parts[1]}/${parts[2]}/${parts[0]}`;
 }
