@@ -1,10 +1,16 @@
-// The .map() method creates a new array by applying the formatDate function to each element in the dates array.
+// .filter() = creates a new array by filtering
+//             out elements
 
-const dates = ['2024-1-10', '2025-2-20', '2026-3-30'];
-const formattedDates = dates.map(formatDate);
-console.log(formattedDates);
+const words = ['apple', 'orange', 'banana', 'kiwi', 'pomegranate', 'coconut'];
+const shortWords = words.filter(getShortWords);
+const longWords = words.filter(getLongWords);
 
-function formatDate(element) {
-  const parts = element.split('-');
-  return `${parts[1]}/${parts[2]}/${parts[0]}`;
+console.log(longWords);
+
+function getShortWords(element) {
+  return element.length <= 6;
+}
+
+function getLongWords(element) {
+  return element.length > 6;
 }
