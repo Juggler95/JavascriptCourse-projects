@@ -1,17 +1,22 @@
-// .reduce() = reduce the elements of an array to a single value
+//function expressions = a way to define functions as values or variables
 
-const grades = [75, 50, 90, 80, 65, 95];
+const numbers = [1, 2, 3, 4, 5, 6];
+const squares = numbers.map(function (element) {
+  return Math.pow(element, 2);
+});
 
-const maximum = grades.reduce(getMax);
-const minimum = grades.reduce(getMin);
+const cubes = numbers.map(function (element) {
+  return Math.pow(element, 3);
+});
+const evenNums = numbers.filter(function (element) {
+  return element % 2 === 0;
+});
 
-console.log(maximum);
-console.log(minimum);
+const oddNums = numbers.filter(function (element) {
+  return element % 2 !== 0;
+});
+const total = numbers.reduce(function (accumulator, element) {
+  return accumulator + element;
+});
 
-function getMax(accumulator, element) {
-  return Math.max(accumulator, element);
-}
-
-function getMin(accumulator, element) {
-  return Math.min(accumulator, element);
-}
+console.log(total);
