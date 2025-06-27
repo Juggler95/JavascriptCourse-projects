@@ -1,16 +1,17 @@
-// .filter() = creates a new array by filtering
-//             out elements
+// .reduce() = reduce the elements of an array to a single value
 
-const words = ['apple', 'orange', 'banana', 'kiwi', 'pomegranate', 'coconut'];
-const shortWords = words.filter(getShortWords);
-const longWords = words.filter(getLongWords);
+const grades = [75, 50, 90, 80, 65, 95];
 
-console.log(longWords);
+const maximum = grades.reduce(getMax);
+const minimum = grades.reduce(getMin);
 
-function getShortWords(element) {
-  return element.length <= 6;
+console.log(maximum);
+console.log(minimum);
+
+function getMax(accumulator, element) {
+  return Math.max(accumulator, element);
 }
 
-function getLongWords(element) {
-  return element.length > 6;
+function getMin(accumulator, element) {
+  return Math.min(accumulator, element);
 }
