@@ -1,17 +1,30 @@
-// arrow functions = a conscise way to write function expressions
-// good for simple functions that you use only once
-// (paramaters) => some code
+// object = a collection of related properties and/or methods
+// can represent real world objects (people, prodects, places)
+// objects = {key:value, function()}
 
-const numbers = [1, 2, 3, 4, 5, 6];
+const person1 = {
+  firstName: 'Spongebob',
+  lastName: 'Squarepants',
+  age: 30,
+  isEmployed: true,
+  sayHello: function () {
+    console.log('Hi! I am Spongebob!');
+  },
+  eat: function () {
+    console.log('I am eating a Krabby Patty');
+  },
+};
 
-const squares = numbers.map((element) => Math.pow(element, 2));
-const cubes = numbers.map((element) => Math.pow(element, 3));
-const evenNums = numbers.filter((element) => element % 2 === 0);
-const oddNums = numbers.filter((element) => element % 2 !== 0);
-const total = numbers.reduce((accumulator, element) => accumulator + element);
+const person2 = {
+  firstName: 'Patrick',
+  lastName: 'Star',
+  age: 42,
+  isEmployed: true,
+  sayHello: () => console.log("Hey, I'm Patrick..."),
+  eat: function () {
+    console.log('I am eating roast beef, chicken, and pizza');
+  },
+};
 
-console.log(squares);
-console.log(cubes);
-console.log(evenNums);
-console.log(oddNums);
-console.log(total);
+person1.eat();
+person2.eat();
