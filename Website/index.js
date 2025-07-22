@@ -1,30 +1,30 @@
-// class = (ES6 feature) provides a more structed and cleanier way to
-//          work with objects compared to traditional constructor functions
-//          ex. static keyword, encapsulation, inheritance
+// static = keword that defines properties or methods that belong
+//          to a class itself rather than the objects created
+//          from that class (class owns anything static, not the objects)
 
-class Product{
-  constructor(name, price){
-    this.name = name,
-    this.price = price;
+class User{
+  static userCount = 0;
+
+  constructor(username){
+    this.username = username;
+    User.userCount++;
   }
 
-  displayProduct(){
-    console.log(`Prduct: ${this.name}`);
-    console.log(`Price: $${this.price.toFixed(2)}`);
+  static getUserCount(){
+    console.log(`There are ${User.userCount} users online`);
   }
-
-  calculateTotal(salesTax){
-    return this.price + (this.price * salesTax);
+  sayHello(){
+    console.log(`Hello, my username is ${this.username}`);
   }
 }
 
-const salesTax = 0.05;
+const user1 = new User("Spongebob");
+const user2 = new User("Patrick");
+const user3 = new User("Sandy");
 
-const product1 = new Product("Shirt", 19.99);
-const product2 = new Product("Pants", 22.50);
-const product3 = new Product("Underwear", 100.00)
+user1.sayHello();
+user2.sayHello();
+user3.sayHello();
 
-product3.displayProduct();
 
-const total = product3.calculateTotal(salesTax);
-console.log(`Total price (with tax): $${total.toFixed(2)}`);
+User.getUserCount();
