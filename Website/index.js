@@ -1,30 +1,45 @@
-// static = keword that defines properties or methods that belong
-//          to a class itself rather than the objects created
-//          from that class (class owns anything static, not the objects)
+// inheritance = allows a new class to inherit properties and methods
+//               from an existing class (parent -> child)
+//               helps with code reusability
 
-class User{
-  static userCount = 0;
+class Animal{
+  alive = true;
 
-  constructor(username){
-    this.username = username;
-    User.userCount++;
+  eat(){
+    console.log(`This ${this.name} is eating`);
   }
 
-  static getUserCount(){
-    console.log(`There are ${User.userCount} users online`);
+  sleep(){
+    console.log(`This ${this.name} is sleeping`);
   }
-  sayHello(){
-    console.log(`Hello, my username is ${this.username}`);
+}
+class Rabbit extends Animal{
+  name = "rabbit";
+
+  run(){
+    console.log(`This ${this.name} is running`);
+  }
+}
+class Fish extends Animal{
+  name = "fish";
+
+  swim(){
+    console.log(`This ${this.name} is swimming`);
+  }
+}
+class Hawk extends Animal{
+  name = "hawk";
+
+  fly(){
+    console.log(`This ${this.name} is flying`);
   }
 }
 
-const user1 = new User("Spongebob");
-const user2 = new User("Patrick");
-const user3 = new User("Sandy");
+const rabbit = new Rabbit();
+const fish = new Fish();
+const hawk = new Hawk();
 
-user1.sayHello();
-user2.sayHello();
-user3.sayHello();
-
-
-User.getUserCount();
+console.log(rabbit.alive);
+rabbit.eat();
+rabbit.sleep();
+rabbit.fly();
